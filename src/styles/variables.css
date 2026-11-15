@@ -1,0 +1,21 @@
+:root {
+  --green: #2e7d5b;
+  --green-dark: #236347;
+  --bg: #f7f8f4;
+  --surface: #fff;
+  --text: #20332a;
+  --muted: #708178;
+  --line: #e4ebe5;
+  --gold: #e9b872;
+  --shadow: 0 14px 35px rgba(34, 67, 48, 0.07);
+}
+:root[data-theme="dark"] {
+  --green: #68bb8b;
+  --green-dark: #4eaa76;
+  --bg: #14221b;
+  --surface: #203229;
+  --text: #edf6ee;
+  --muted: #b4c7ba;
+  --line: #395246;
+  --shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+}
