@@ -1,3 +1,11 @@
+
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Truck, Leaf, Heart } from "lucide-react";
+import { foods } from "../data/foods";
+import { categories } from "../data/categories";
+import FoodCard from "../components/food/FoodCard";
+
 const categoryPhotos = {
   Burgers:
     "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80",
@@ -12,16 +20,11 @@ const categoryPhotos = {
   Desserts:
     "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=500&q=80",
 };
-import React from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, Truck, Leaf, Heart } from "lucide-react";
-import { foods } from "../data/foods";
-import { categories } from "../data/categories";
-import FoodCard from "../components/food/FoodCard";
-import { useState } from "react";
+
 export default function Home() {
-  const [email, setEmail] = useState(""),
-    [sent, setSent] = useState(false);
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+
   return (
     <>
       <section className="hero">
@@ -67,10 +70,12 @@ export default function Home() {
           />
         </div>
       </section>
+
       <section className="section container">
         <div className="section-title">
           <span className="eyebrow">EXPLORE</span>
           <h2>Browse by category</h2>
+          <p>Choose your favorite category and discover delicious meals.</p>
         </div>
         <div className="category-grid">
           {categories
@@ -98,12 +103,16 @@ export default function Home() {
             ))}
         </div>
       </section>
+
       <section className="section soft-section">
         <div className="container">
           <div className="section-title">
             <span className="eyebrow">CUSTOMER FAVORITES</span>
             <h2>Most loved dishes</h2>
-            <p>Discover something for every appetite.</p>
+            <p>
+              Explore our most popular meals, carefully selected
+              for a delicious experience.
+            </p>
           </div>
           <div className="food-grid">
             {foods
@@ -120,6 +129,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="section container">
         <div className="section-title">
           <span className="eyebrow">WHY FOODHUB</span>
@@ -151,6 +161,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
       <section className="section container">
         <div className="offer-banner">
           <div>
@@ -166,6 +177,7 @@ export default function Home() {
           <span className="offer-emoji">🥗</span>
         </div>
       </section>
+
       <section className="section container">
         <div className="section-title">
           <span className="eyebrow">KIND WORDS</span>
@@ -184,6 +196,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
       <section className="section soft-section">
         <div className="container newsletter">
           <div>
@@ -202,7 +215,10 @@ export default function Home() {
               required
               className="form-control"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setSent(false);
+              }}
               placeholder="Your email address"
             />
             <button className="btn btn-primary">Subscribe</button>
